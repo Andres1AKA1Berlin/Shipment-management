@@ -15,6 +15,7 @@ while True:
     print("4. Track shipment")
     print("5. Pay for shipment")
     print("6. Exit")
+    print("7. View tables")
     ch = int(input("Enter choice: "))
 
     if ch == 1:
@@ -118,7 +119,36 @@ while True:
     elif ch == 6:
         print("Thank you!")
         break
+  
+    elif ch == 7:
+        print("\n===== VIEW TABLES =====")
+        print("1. Customers")
+        print("2. Shipments")
+        print("3. Payments")
+        print("4. Tracking")
 
+        t = int(input("Choose table: "))
+
+        if t == 1:
+            cur.execute("SELECT * FROM customers")
+        elif t == 2:
+            cur.execute("SELECT * FROM shipments")
+        elif t == 3:
+            cur.execute("SELECT * FROM payments")
+        elif t == 4:
+            cur.execute("SELECT * FROM tracking")
+        else:
+            print("Wrong table choice")
+            continue
+
+        rows = cur.fetchall()
+
+        for row in rows:
+            print(row)
+
+        if not rows:
+            print("No records found")
+          
     else:
         print("Wrong choice, try again")
 
