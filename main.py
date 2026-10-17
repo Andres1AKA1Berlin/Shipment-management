@@ -1,3 +1,4 @@
+
 import mysql.connector
 import random
 
@@ -64,7 +65,7 @@ while True:
         cur.execute("SELECT ship_id FROM shipments WHERE track_no=%s", (trk,))
         row = cur.fetchone()
         if row is None:
-            print("Shipment not found")
+            print("Shipment not found !")
         else:
             for i in range(len(states)):
                 print(i + 1, states[i])
@@ -84,7 +85,7 @@ while True:
                     "FROM shipments WHERE track_no=%s", (trk,))
         s = cur.fetchone()
         if s is None:
-            print("Shipment not found")
+            print("Shipment not found !")
         else:
             cur.execute("SELECT name FROM customers WHERE cust_id=%s", (s[1],))
             c = cur.fetchone()
@@ -121,7 +122,7 @@ while True:
         break
   
     elif ch == 7:
-        print("\n===== VIEW TABLES =====")
+        print("\n      VIEW TABLES      ")
         print("1. Customers")
         print("2. Shipments")
         print("3. Payments")
