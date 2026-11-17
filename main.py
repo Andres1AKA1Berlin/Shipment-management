@@ -3,13 +3,13 @@ import mysql.connector
 import random
 
 con = mysql.connector.connect(host="localhost", user="root",
-                              password="root", database="STUZHA")
+                              password="root", database="db")
 cur = con.cursor()
 
 states = ["IN TRANSIT", "OUT FOR DELIVERY", "DELIVERED", "CANCELLED"]
 
 while True:
-    print("\n===== STUZHA SHIPMENT MANAGEMENT =====")
+    print("\      SHIPMENT MANAGEMENT       ")
     print("1. Add customer")
     print("2. Book shipment")
     print("3. Update status")
